@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import { Error } from 'mongoose';
-import config from '../../config';
+// import config from '../../config';
 import ApiError from '../../errors/ApiError';
 import handleValidationError from '../../errors/handleValidationError';
 
@@ -17,7 +17,7 @@ const globalErrorHandler: ErrorRequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  process.env === 'development'
+  process.env.NODE_ENV === 'development'
     ? console.log(`🐱‍🏍 globalErrorHandler ~~`, error)
     : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
 
@@ -62,7 +62,7 @@ const globalErrorHandler: ErrorRequestHandler = (
     success: false,
     message,
     errorMessages,
-    stack: config.env !== 'production' ? error?.stack : undefined,
+    stack: process.env.NODE_ENV !== 'production' ? error?.stack : undefined,
   });
 
   next();

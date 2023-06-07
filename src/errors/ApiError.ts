@@ -1,5 +1,4 @@
-/* eslint-disable consistent-type-definitions */
-// eslint-disable-next-line consistent-type-definitions
+
 class ApiError extends Error {
     statusCode: number;
   
