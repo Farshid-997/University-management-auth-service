@@ -27,6 +27,8 @@ const createStudent = async (
   // generate student id
   let newUserAllData = null
   const session = await mongoose.startSession()
+
+ 
   try {
     session.startTransaction()
     const id = await generateStudentId(academicsemester)
@@ -57,6 +59,8 @@ const createStudent = async (
     await session.endSession()
     throw error
   }
+
+ 
 
   //user --> student ---> academicSemester, academicDepartment , academicFaculty
 
