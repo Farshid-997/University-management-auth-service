@@ -33,7 +33,6 @@
     "winston": "^3.9.0"
   },
   "dependencies": {
-    "color": "^4.2.3",
     "dotenv": "^16.0.3",
     "eslint": "^8.41.0",
     "http-status": "^1.6.2",
